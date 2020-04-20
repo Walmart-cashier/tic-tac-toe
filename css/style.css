@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+.main{
+    margin: 0 30vw;
+    border: 1px solid black;
+}
+
+.main h2{
+    padding: 1rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 4px lightgray;
+    color: #3b3b3b;
+}
+
+.gameboard{
+    width: 100%;
+    margin: 2vw 0;
+    height: auto;
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    text-align: center;
+    font-size: 3rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons button{
+    padding:.4rem;
+    background-color:white;
+    margin: 1vw ;
+}
