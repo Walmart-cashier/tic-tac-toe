@@ -1,4 +1,5 @@
 //module with gameboardobject and its values
+"use strict"
 const gameBoard = (function () {
     const gameBoardObject = {
         gameBoardArray: ['x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'o'],
@@ -43,7 +44,4 @@ const populateGameboard=(function(){
 
 
 
-window.addEventListener('load',()=>{
-    populateGameboard();
-});
-    
+
