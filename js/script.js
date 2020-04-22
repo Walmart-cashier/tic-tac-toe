@@ -53,7 +53,7 @@ function checkwinner(){
     
     // return (((one.textContent&&two.textContent&&three.textContent)=="x"||"o")||((four.textContent&&five.textContent&&six.textContent)=="x"||"o")||((seven.textContent&&eight.textContent&&nine.textContent)=="x"||"o")||((one.textContent&&four.textContent&&seven.textContent)=="x"||"o")||((two.textContent&&five.textContent&&eight.textContent)=="x"||"o")||((three.textContent&&six.textContent&&nine.textContent)=="x"||"o")||((seven.textContent&&five.textContent&&three.textContent)=="x"||"o")||((one.textContent&&five.textContent&&nine.textContent)=="x"||"o"))
 
-    return (one.textContent=="x"&&two.textContent=="x"&&three.textContent=="x"||one.textContent=="o"&&two.textContent=="o"&&three.textContent=="o")
+    return (one.textContent=="x"&&two.textContent=="x"&&three.textContent=="x"||one.textContent=="o"&&two.textContent=="o"&&three.textContent=="o")||(four.textContent=="x"&&five.textContent=="x"&&six.textContent=="x"||four.textContent=="o"&&five.textContent=="o"&&six.textContent=="o")
 }
 
 
