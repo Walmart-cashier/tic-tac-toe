@@ -30,12 +30,16 @@ const populateGameboard = (function () {
                 {
                     item.textContent=gameBoardObject.gameBoardArray[val];
                     val++;
+                   if(checkwinner())
+                   {
+                       const playerNameDiv=document.querySelector('.playername');
+                       playerNameDiv.textContent="----              GAME OVER ----"
+                   }
                 }
                 else
                 {
 
                 }
-                
         })
     });
 })();
