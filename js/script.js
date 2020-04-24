@@ -9,8 +9,9 @@ const createPlayers = (name) => {
 }
 
 //module to populate gameboard
+//changing the module into a function
 
-const populateGameboard = (function () {
+const populateGameboard = function () {
     let val=0;
     let idVal=1;
     const gameBoardObject = {
@@ -33,7 +34,12 @@ const populateGameboard = (function () {
                    if(checkwinner())
                    {
                        const playerNameDiv=document.querySelector('.playername');
-                       playerNameDiv.textContent="----              GAME OVER ----"
+                       playerNameDiv.textContent="----              GAME OVER ----";
+                       const restart=document.createElement('button');
+                       restart.textContent='Restart Game';
+                       const buttonsDiv=document.querySelector('.buttons');
+                       buttonsDiv.appendChild(restart);
+                       restart.addEventListener('click',()=>clearDom())
                    }
                 }
                 else
@@ -42,7 +48,14 @@ const populateGameboard = (function () {
                 }
         })
     });
-})();
+}
+
+function clearDom(){
+    const boxes=document.querySelectorAll('.gameboard div');
+    boxes.forEach((item)=>{
+        item.textContent="";
+    })
+}
 
 function checkwinner(){
     const one=document.querySelector('#a1');
@@ -57,7 +70,7 @@ function checkwinner(){
     
     // return (((one.textContent&&two.textContent&&three.textContent)=="x"||"o")||((four.textContent&&five.textContent&&six.textContent)=="x"||"o")||((seven.textContent&&eight.textContent&&nine.textContent)=="x"||"o")||((one.textContent&&four.textContent&&seven.textContent)=="x"||"o")||((two.textContent&&five.textContent&&eight.textContent)=="x"||"o")||((three.textContent&&six.textContent&&nine.textContent)=="x"||"o")||((seven.textContent&&five.textContent&&three.textContent)=="x"||"o")||((one.textContent&&five.textContent&&nine.textContent)=="x"||"o"))
 
-    return (one.textContent=="x"&&two.textContent=="x"&&three.textContent=="x"||one.textContent=="o"&&two.textContent=="o"&&three.textContent=="o")||(four.textContent=="x"&&five.textContent=="x"&&six.textContent=="x"||four.textContent=="o"&&five.textContent=="o"&&six.textContent=="o")
+    return (one.textContent=="x"&&two.textContent=="x"&&three.textContent=="x"||one.textContent=="o"&&two.textContent=="o"&&three.textContent=="o") || (four.textContent=="x"&&five.textContent=="x"&&six.textContent=="x"||four.textContent=="o"&&five.textContent=="o"&&six.textContent=="o") || (seven.textContent=="x"&&eight.textContent=="x"&&nine.textContent=="x"||seven.textContent=="o"&&eight.textContent=="o"&&nine.textContent=="o") || (one.textContent=="x"&&four.textContent=="x"&&seven.textContent=="x"||one.textContent=="o"&&four.textContent=="o"&&seven.textContent=="o") || (two.textContent=="x"&&five.textContent=="x"&&eight.textContent=="x"||two.textContent=="o"&&five.textContent=="o"&&eight.textContent=="o") || (three.textContent=="x"&&six.textContent=="x"&&nine.textContent=="x"||three.textContent=="o"&&six.textContent=="o"&&nine.textContent=="o") || (seven.textContent=="x"&&five.textContent=="x"&&three.textContent=="x"||seven.textContent=="o"&&five.textContent=="o"&&three.textContent=="o") || (one.textContent=="x"&&five.textContent=="x"&&nine.textContent=="x"||one.textContent=="o"&&five.textContent=="o"&&nine.textContent=="o")
 }
 
 
@@ -102,5 +115,13 @@ const NameEvent = function () {
         const playerName2 = document.querySelector('.playername2');
         playerName1.textContent = player1.value;
         playerName2.textContent = player2.value;
+
+        //call populate dom
+        populateGameboard();
     })
 };
+
+
+//things to add later
+//add restart button after game over
+//animate with all black n white and little colors
