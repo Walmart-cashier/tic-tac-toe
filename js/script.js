@@ -32,14 +32,18 @@ const populateGameboard = function () {
                     item.textContent=gameBoardObject.gameBoardArray[val];
                     val++;
                    if(checkwinner())
-                   {
-                       const playerNameDiv=document.querySelector('.playername');
-                       playerNameDiv.textContent="----              GAME OVER ----";
-                       const restart=document.createElement('button');
+                   {    
+                       val=0;
+                       const title=document.querySelector('.main h2');
+                       title.textContent="xX Game Over Xx";
+                       if(!document.querySelector('#restartButton')){
+                        const restart=document.createElement('button');
                        restart.textContent='Restart Game';
+                       restart.id="restartButton";
                        const buttonsDiv=document.querySelector('.buttons');
                        buttonsDiv.appendChild(restart);
                        restart.addEventListener('click',()=>clearDom())
+                       }
                    }
                 }
                 else
@@ -51,6 +55,8 @@ const populateGameboard = function () {
 }
 
 function clearDom(){
+    const title=document.querySelector('.main h2');
+    title.textContent="Tic Tac Toe";
     const boxes=document.querySelectorAll('.gameboard div');
     boxes.forEach((item)=>{
         item.textContent="";
@@ -84,9 +90,12 @@ const buttonEvent = (function () {
     const playerButton = document.querySelector('#playerButton');
 
     comButton.addEventListener('click', () => {
-
+        const title=document.querySelector('.main h2');
+        title.textContent="Working on the Logic ! please choose vs player";
     })
     playerButton.addEventListener('click', () => {
+        const title=document.querySelector('.main h2');
+        title.textContent="TIC TAC TOE";
         const temp = document.querySelector('form') == null ? false : true;
         if (!temp) {
             const mainDiv = document.querySelector('.main');
